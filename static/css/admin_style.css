@@ -1,0 +1,106 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+/* Variables */
+:root {
+    --primary-color: #ffaf4d; /* Vivid Orange */
+    --secondary-color: #6fcf97; /* Light Green */
+    --tertiary-color: #7a7a7a; /* Gray */
+    --text-color: #ed6a5a; /* Coral Red */
+    --bg-color: #dbe2ef; /* Pale Blue */
+    --accent-color: #474747; /* Dark Gray */
+    --border: .2rem solid var(--text-color);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+/* Selection */
+*::selection {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* Scrollbar */
+*::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+}
+
+/* Body defaults */
+body {
+    background: var(--bg-color);
+    font-family: 'Rubik', sans-serif;
+    line-height: 1.6;
+}
+
+/* Titles */
+.title {
+    color: var(--text-color);
+}
+
+/* Buttons */
+.btn { 
+    background-color: var(--primary-color);
+}
+
+.delete-btn { 
+    background-color: var(--accent-color);
+}
+
+.option-btn { 
+    background-color: var(--secondary-color);
+}
+
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover {
+    background-color: var(--tertiary-color);
+    transform: translateY(-2px);
+}
+
+/* Messages */
+.message {
+    background-color: var(--bg-color);
+}
+
+.message span {
+    color: var(--text-color);
+}
+
+.message i {
+    color: var(--accent-color);
+}
+
+.message i:hover {
+    transform: rotate(90deg);
+}
+
+/* Header */
+.header {
+    background-color: var(--bg-color);
+    box-shadow: var(--box-shadow);
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+    html { font-size: 55%; }
+}
+
+@media (max-width: 768px) {
+    #menu-btn { display: inline-block; }
+
+    .header .flex .navbar {
+        background-color: var(--bg-color);
+        border-top: var(--border);
+        border-bottom: var(--border);
+    }
+
+    .header .flex .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .header .flex .navbar a { margin: 2rem; display: block; }
+}
+
+@media (max-width: 450px) {
+    html { font-size: 50%; }
+    .title { font-size: 3.5rem; }
+}
