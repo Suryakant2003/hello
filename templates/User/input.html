@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Input</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+   <!-- custom admin css file link  -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link rel="stylesheet" href="css/admin_style.css">
+</head>
+<body>
+   
+<header>
+    <!-- Header content here -->
+</header>
+
+<section class="checkout">
+    <form action="" method="POST">
+        <div class="flex">
+
+            <div class="inputBox">
+                <span>Select Your Job Application :</span>
+                <select id="options">
+                    <option value="option1">Software Development</option>
+                    <option value="option2">Information Technology (IT) Support:</option>
+                    <option value="option3">Networking</option>
+                    <option value="option4">Cybersecurity</option>
+                    <option value="option5">Data Science and Analytics</option>
+                    <option value="option6">Cloud Computing</option>
+                    <option value="option7">Project Management</option>
+                    <option value="option8">UI/UX Design</option>
+                    <option value="option9">Hardware Engineering</option>
+                    <option value="option10">Technical Writing</option>
+                    <option value="option11">Sales and Marketing</option>
+                    <option value="option12">Human Resources (HR)</option>
+
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+
+            <div class="inputBox">
+                <span>Position Application :</span>
+                <input type="text" id="position" name="name" placeholder="Enter Your Application Position">
+            </div>
+
+            <div class="inputBox">
+                <span>Full Name :</span>
+                <input type="text" id="fullname" name="name" placeholder="Enter Your Full Name">
+            </div>
+
+            <div class="inputBox">
+                <span>Date of Birth:</span>
+                <input type="date" name="birthdate" placeholder="Enter your date of birth">
+            </div>
+            
+            <div class="inputBox">
+                <span>Your Email :</span>
+                <input type="email" name="email" placeholder="Enter Your Email">
+            </div>
+
+            <div class="inputBox">
+                <span>Your Phone No. :</span>
+                <input type="tel" name="phone" placeholder="Enter Your Phone Number" oninput="this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10)" required>
+            </div>
+
+            <div class="inputBox">
+                <span>Skills :</span>
+                <input type="text" min="0" name="pin_code" placeholder="Enter Your Skills">
+            </div>
+            
+            <div class="inputBox">
+                <span>Upload Resume (PDF,DOC):</span>
+                <input type="file" accept=".pdf,.doc,.docx" required class="box" name="resume">
+            </div>
+
+        </div>
+    </form>
+</section>
+
+<footer>
+    <!-- Footer content here -->
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("fullname").addEventListener("input", function(event) {
+            let inputValue = event.target.value;
+            // Remove non-alphabetic characters
+            inputValue = inputValue.replace(/[^a-zA-Z\s]/g, '');
+            // Limit to 30 characters
+            event.target.value = inputValue.substring(0, 30);
+        });
+    });
+</script>
+
+</body>
+</html>

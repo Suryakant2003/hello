@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+   <script>
+      document.addEventListener("DOMContentLoaded", function() {
+         var messages = []; // Populate this array with your messages
+      
+         // Check if messages array is not empty
+         if(messages.length > 0) {
+            messages.forEach(function(msg) {
+               showMessage(msg);
+            });
+         }
+      });
+      
+      function showMessage(message) {
+         var messageDiv = document.createElement("div");
+         messageDiv.classList.add("message");
+         messageDiv.innerHTML = '<span>' + message + '</span>' +
+                                '<i class="fas fa-times" onclick="this.parentElement.remove();"></i>';
+         document.body.appendChild(messageDiv);
+      }
+      
+   </script>
+
+</head>
+<body>
+   
+<section class="form-container">
+
+   <form action="" method="post">
+      <h3>Login Now</h3>
+      <input type="email" name="email" class="box" placeholder="Enter your email" required>
+      <input type="password" name="pass" class="box" placeholder="Enter your password" required>
+      <input type="submit" class="btn" name="submit" value="login now">
+   </form>
+
+</section>
+
+</body>
+</html>
