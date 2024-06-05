@@ -19,7 +19,7 @@
     <!-- Header content here -->
 </header>
 
-<section class="checkout">
+<section class="input">
     <form action="" method="POST">
         <div class="flex">
 
@@ -69,9 +69,58 @@
             </div>
 
             <div class="inputBox">
-                <span>Skills :</span>
-                <input type="text" min="0" name="pin_code" placeholder="Enter Your Skills">
+                <span>Full Address :</span>
+                <input type="address" name="address" placeholder="Enter Full Address">
             </div>
+
+            <div class="inputBox">
+                <span>Present Salary :</span>
+                <select id="options">
+                    <option value="option1">0-10 LPA</option>
+                    <option value="option2">10-20 LPA</option>
+                    <option value="option3">20-30 LPA</option>
+                    <option value="option4">30-40 LPA</option>
+                    <option value="option5">40-50 LPA</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+
+            <div class="inputBox">
+                <span>Expected Salary (LPA) :</span>
+                <input type="text" name="expected" placeholder="Expected Salary" oninput="validateSalary(this)">
+            </div>
+
+            <div class="inputBox">
+                <span>Skills :</span>
+                <input type="text" min="0" name="skills" placeholder="Enter Your Skills">
+            </div>
+
+            <div class="inputBox">
+                <span>notice period (Day) :</span>
+                <select id="options">
+                    <option value="option1">10 Days</option>
+                    <option value="option2">15 Days</option>
+                    <option value="option3">30 Days</option>
+                    <option value="option4">45 Days</option>
+                    <option value="option5">90 Days</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+
+            <div class="inputBox">
+                <span>Are You Currently Working:</span>
+                <select id="currentlyWorking" onchange="toggleDetailBox()">
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
+                </select>
+            </div>
+
+            <div id="detailTextBox" style="display: none;">
+                <div class="inputBox">
+                    <input type="text" id="detailInput" name="details" placeholder="Where You Are Working">
+                </div>
+            </div>
+            
             
             <div class="inputBox">
                 <span>Upload Resume (PDF,DOC):</span>
@@ -79,6 +128,11 @@
             </div>
 
         </div>
+
+        <div class="inputBox">
+            <input type="submit" value="Submit">
+        </div>
+        
     </form>
 </section>
 
@@ -87,6 +141,27 @@
 </footer>
 
 <script>
+    function toggleDetailBox() {
+        var selectBox = document.getElementById("currentlyWorking");
+        var detailTextBox = document.getElementById("detailTextBox");
+    
+        if (selectBox.value === "YES") {
+            detailTextBox.style.display = "block";
+        } else {
+            detailTextBox.style.display = "none";
+        }
+    }
+
+    function validateSalary(input) {
+        // Remove any non-numeric characters
+        input.value = input.value.replace(/[^0-9.]/g, '');
+    
+        // If there are multiple dots, remove all but the first one
+        if ((input.value.match(/\./g) || []).length > 1) {
+            input.value = input.value.replace(/\.(?=.*\.)/g, '');
+        }
+    }
+    
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("fullname").addEventListener("input", function(event) {
             let inputValue = event.target.value;
