@@ -36,10 +36,7 @@ body {
    color: var(--accent-color);
 }
 
-/* Button colors */
-.btn {
-   background-color: var(--primary-color);
-}
+
 
 .delete-btn {
    background-color: var(--accent-color);
@@ -49,12 +46,7 @@ body {
    background-color: var(--secondary-color);
 }
 
-/* Hover effect for buttons */
-.btn:hover,
-.delete-btn:hover,
-.option-btn:hover {
-   background-color: var(--tertiary-color);
-}
+
 
 /* Styling for empty elements */
 .empty {
@@ -116,3 +108,14 @@ body {
 .header .flex .logo {
    color: var(--primary-color);
 }
+
+.gradient-custom {
+   /* fallback for old browsers */
+   background: #6a11cb;
+   
+   /* Chrome 10-25, Safari 5.1-6 */
+   background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+   
+   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+   }  
