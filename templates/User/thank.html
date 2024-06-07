@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you for visiting</title>
+    <link rel="stylesheet" href="thank.css">
+</head>
+<body>
+    <div class="bubble-container">
+        <!-- bubbles will be generated here -->
+    </div>
+    <div class="center-box">
+        <h1>Thank you for visiting</h1>
+        <p>You may now exit.</p>
+        <button class="exit-btn">EXIT</button>
+    </div>
+    <script src="thank.js"></script>
+    <script>
+        // Function to handle the click event on the EXIT button
+        document.querySelector('.exit-btn').addEventListener('click', function() {
+            // Redirect to the welcomepage.html when the button is clicked
+            window.location.href = 'welcomepage.html';
+        });
+    </script>
+</body>
+</html>

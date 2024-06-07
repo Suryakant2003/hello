@@ -1,0 +1,83 @@
+body {
+    background-color: #032B44; /* Dark blue background */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.bubble-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #87CEEB; /* Sky blue */
+    animation: float-up 3s infinite;
+}
+
+.bubble:nth-child(2n) {
+    background-color: #34C759; /* Green */
+}
+
+.bubble:nth-child(3n) {
+    background-color: #FF69B4; /* Red */
+}
+
+.bubble:nth-child(4n) {
+    background-color: #FFA07A; /* Orange */
+}
+
+.bubble:nth-child(5n) {
+    background-color: #FFC0CB; /* Pink */
+}
+
+.bubble:nth-child(6n) {
+    background-color: #F7DC6F; /* Yellow */
+}
+
+.center-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    padding: 40px; 
+    width: 200px; 
+    height: 200px; 
+    text-align: center;
+}
+
+.exit-btn {
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.exit-btn:hover {
+    background-color: #fc0000; 
+    transition: background-color 2s; 
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100vh);
+    }
+}
