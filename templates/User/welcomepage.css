@@ -1,0 +1,59 @@
+
+.welcome-page {
+    width: 100%;
+    height: 100%;
+    background-image: url('bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1500px 700px;
+  animation: zoomBG 8s normal forwards ease-in-out;
+}
+@keyframes zoomBG {
+    to {transform: scale(1);}
+    from {transform: scale(6);}
+  }
+.welcome-page h1 {
+    font-size: 36px;
+    color: #000000;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: bold;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Create the box */
+.box {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+
+.continue-btn {
+    background-color: blue;
+    color: #fff;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.continue-btn:hover {
+    background-color: #FF0000; /* red */
+}
+
+.parent:hover.child,
+.parent:focus.child {
+  transform: scale(1.2);
+}

@@ -110,6 +110,7 @@
             <div class="inputBox">
                 <span>Are You Currently Working:</span>
                 <select id="currentlyWorking" onchange="toggleDetailBox()">
+                    <option value="empty"></option>
                     <option value="YES">YES</option>
                     <option value="NO">NO</option>
                 </select>
@@ -130,7 +131,9 @@
         </div>
 
         <div class="inputBox">
-            <input type="submit" value="Submit">
+            <a href="text.html">
+                <input type="submit" value="Submit">
+            </a>
         </div>
         
     </form>
@@ -141,36 +144,38 @@
 </footer>
 
 <script>
-    function toggleDetailBox() {
-        var selectBox = document.getElementById("currentlyWorking");
-        var detailTextBox = document.getElementById("detailTextBox");
-    
-        if (selectBox.value === "YES") {
-            detailTextBox.style.display = "block";
-        } else {
-            detailTextBox.style.display = "none";
+    <script>
+        function toggleDetailBox() {
+            var selectBox = document.getElementById("currentlyWorking");
+            var detailTextBox = document.getElementById("detailTextBox");
+        
+            if (selectBox.value === "YES") {
+                detailTextBox.style.display = "block";
+            } else {
+                detailTextBox.style.display = "none";
+            }
         }
-    }
-
-    function validateSalary(input) {
-        // Remove any non-numeric characters
-        input.value = input.value.replace(/[^0-9.]/g, '');
     
-        // If there are multiple dots, remove all but the first one
-        if ((input.value.match(/\./g) || []).length > 1) {
-            input.value = input.value.replace(/\.(?=.*\.)/g, '');
+        function validateSalary(input) {
+            // Remove any non-numeric characters
+            input.value = input.value.replace(/[^0-9.]/g, '');
+        
+            // If there are multiple dots, remove all but the first one
+            if ((input.value.match(/\./g) || []).length > 1) {
+                input.value = input.value.replace(/\.(?=.*\.)/g, '');
+            }
         }
-    }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("fullname").addEventListener("input", function(event) {
+                let inputValue = event.target.value;
+                // Remove non-alphabetic characters
+                inputValue = inputValue.replace(/[^a-zA-Z\s]/g, '');
+                // Limit to 30 characters
+                event.target.value = inputValue.substring(0, 30);
+            });
+    </script>
     
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("fullname").addEventListener("input", function(event) {
-            let inputValue = event.target.value;
-            // Remove non-alphabetic characters
-            inputValue = inputValue.replace(/[^a-zA-Z\s]/g, '');
-            // Limit to 30 characters
-            event.target.value = inputValue.substring(0, 30);
-        });
-    });
 </script>
 
 </body>
