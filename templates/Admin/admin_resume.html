@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Input</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+   <!-- custom admin css file link  -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link rel="stylesheet" href="css/admin_style.css">
+   <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .selected, .rejected {
+        display: none;
+    }
+   </style>
+</head>
+<body>
+   
+<header>
+    <!-- Header content here -->
+</header>
+
+<section class="input">
+    <form action="" method="POST">
+        <div class="flex">
+            <input type="text" id="search" name="q" placeholder="Search by Skills">
+            <button type="submit">Search</button>
+            <div class="inputBox">
+                <select id="conditions" >
+                    <option value="recent">Recent</option>
+                    <option value="sorted">Sorted</option>
+                    <option value="selected">Selected</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</section>
+
+<section class="table">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mobile No.</th>
+                <th>Expected Salary</th>
+                <th>Presented Salary</th>
+                <th>Resume</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>123-456-7890</td>
+                <td>₹80,000</td>
+                <td>₹75,000</td>
+                <td><a href="#">View Resume</a></td>
+                <td class="btn-container">
+                    <button onclick="setStatus('selected', this)">Select</button>
+                    <button onclick="setStatus('rejected', this)">Reject</button>
+                    <span class="selected">SELECTED</span>
+                    <span class="rejected">REJECTED</span>
+                </td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</section>
+
+<script>
+    function setStatus(status, button) {
+        var parent = button.parentNode;
+        var selectedSpan = parent.querySelector('.selected');
+        var rejectedSpan = parent.querySelector('.rejected');
+        var buttons = parent.querySelectorAll('button');
+        
+        if (status === 'selected') {
+            selectedSpan.style.display = 'inline';
+            rejectedSpan.style.display = 'none';
+        } else if (status === 'rejected') {
+            selectedSpan.style.display = 'none';
+            rejectedSpan.style.display = 'inline';
+        }
+        
+        buttons.forEach(function(btn) {
+            btn.style.display = 'none';
+        });
+    }
+</script>
+
+</body>
+</html>
