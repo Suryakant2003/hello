@@ -131,10 +131,11 @@
         </div>
 
         <div class="inputBox">
-            <a href="text.html">
+            <a href="thank.html">
                 <input type="submit" value="Submit">
             </a>
         </div>
+        
         
     </form>
 </section>
@@ -144,38 +145,36 @@
 </footer>
 
 <script>
-    <script>
-        function toggleDetailBox() {
-            var selectBox = document.getElementById("currentlyWorking");
-            var detailTextBox = document.getElementById("detailTextBox");
-        
-            if (selectBox.value === "YES") {
-                detailTextBox.style.display = "block";
-            } else {
-                detailTextBox.style.display = "none";
-            }
-        }
+    function toggleDetailBox() {
+        var selectBox = document.getElementById("currentlyWorking");
+        var detailTextBox = document.getElementById("detailTextBox");
     
-        function validateSalary(input) {
-            // Remove any non-numeric characters
-            input.value = input.value.replace(/[^0-9.]/g, '');
-        
-            // If there are multiple dots, remove all but the first one
-            if ((input.value.match(/\./g) || []).length > 1) {
-                input.value = input.value.replace(/\.(?=.*\.)/g, '');
-            }
+        if (selectBox.value === "YES") {
+            detailTextBox.style.display = "block";
+        } else {
+            detailTextBox.style.display = "none";
         }
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("fullname").addEventListener("input", function(event) {
-                let inputValue = event.target.value;
-                // Remove non-alphabetic characters
-                inputValue = inputValue.replace(/[^a-zA-Z\s]/g, '');
-                // Limit to 30 characters
-                event.target.value = inputValue.substring(0, 30);
-            });
-    </script>
+    }
+
+    function validateSalary(input) {
+        // Remove any non-numeric characters
+        input.value = input.value.replace(/[^0-9.]/g, '');
     
+        // If there are multiple dots, remove all but the first one
+        if ((input.value.match(/\./g) || []).length > 1) {
+            input.value = input.value.replace(/\.(?=.*\.)/g, '');
+        }
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("fullname").addEventListener("input", function(event) {
+            let inputValue = event.target.value;
+            // Remove non-alphabetic characters
+            inputValue = inputValue.replace(/[^a-zA-Z\s]/g, '');
+            // Limit to 30 characters
+            event.target.value = inputValue.substring(0, 30);
+        });
+    });
 </script>
 
 </body>
