@@ -4,111 +4,403 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Input</title>
+   <title>Job Candidates</title>
 
-   <!-- font awesome cdn link  -->
+   <!-- Font Awesome CDN for icons -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-   <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-   <link rel="stylesheet" href="css/admin_style.css">
+   <!-- Custom CSS for styling -->
    <style>
+    /* Reset and base styles */
+    body {
+       font-family: Arial, sans-serif;
+       margin: 0;
+       padding: 0;
+       background-color: #f2f2f2;
+    }
+    
+    .container {
+       max-width: 1100px;
+       margin: 20px auto;
+       background-color: #fff;
+       padding: 20px;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       border-radius: 5px;
+    }
+    
+    .header .flex {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 10px 20px;
+       background-color: #0057b3;
+       color: #fff;
+       border-radius: 5px 5px 0 0;
+    }
+    
+    .header .logo {
+       color: #fff;
+       font-size: 1.5rem;
+       text-decoration: none;
+       margin-right: 20px;
+    }
+    
+    .header .logo span {
+       font-weight: 300;
+    }
+    
+    .navbar {
+       display: flex;
+    }
+    
+    .navbar a {
+       color: #fff;
+       text-decoration: none;
+       margin: 0 15px;
+       font-size: 1rem;
+       transition: color 0.3s ease;
+    }
+    
+    .navbar a:hover {
+       color: #f0f0f0;
+    }
+    
+    .icons {
+       display: flex;
+       justify-content: flex-end; /* Align icons to the right */
+       align-items: center;
+    }
+    
+    .icons .fas {
+       color: #fff;
+       font-size: 1.3rem;
+       margin-left: 15px;
+       cursor: pointer;
+    }
+    
+    .account-box {
+       position: absolute;
+       top: 60px;
+       right: 20px;
+       background-color: #fff;
+       padding: 10px;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       border-radius: 5px;
+       display: none;
+    }
+    
+    .account-box.active {
+       display: block;
+    }
+    
+    .account-box p {
+       margin: 5px 0;
+       font-size: 0.9rem;
+    }
+    
+    .account-box p span {
+       font-weight: bold;
+       color: #0057b3;
+    }
+    
+    .account-box .delete-btn {
+       display: block;
+       background-color: #ff4d4d;
+       color: #fff;
+       text-decoration: none;
+       text-align: center;
+       padding: 8px 12px;
+       border-radius: 3px;
+       margin-top: 10px;
+       transition: background-color 0.3s ease;
+    }
+    
+    .account-box .delete-btn:hover {
+       background-color: #e63946;
+    }
+    
+    .search-form {
+       margin-top: 20px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       border-bottom: 1px solid #ddd;
+       padding-bottom: 10px;
+    }
+    
+    .search-form input[type="text"] {
+       padding: 10px;
+       font-size: 1rem;
+       border: 1px solid #ddd;
+       border-radius: 3px;
+       width: 60%;
+       outline: none;
+    }
+    
+    .search-form button {
+       padding: 10px 20px;
+       font-size: 1rem;
+       background-color: #0057b3;
+       color: #fff;
+       border: none;
+       border-radius: 3px;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+    }
+    
+    .search-form button:hover {
+       background-color: #004080;
+    }
+    
     table {
-        width: 100%;
-        border-collapse: collapse;
+       width: 100%;
+       margin-top: 20px;
+       border-collapse: collapse;
     }
+    
     th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
+       padding: 12px;
+       text-align: left;
+       border-bottom: 1px solid #ddd;
     }
+    
     th {
-        background-color: #f2f2f2;
+       background-color: #f2f2f2;
+       color: #333;
     }
-    .btn-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    
+    td {
+       background-color: #fff;
+       color: #333;
     }
-    .selected, .rejected {
-        display: none;
+    
+    .status-container {
+       position: relative;
     }
-   </style>
+    
+    .status-container button {
+       padding: 8px 12px;
+       font-size: 0.9rem;
+       margin-right: 5px;
+       cursor: pointer;
+       border: none;
+       border-radius: 3px;
+       transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .status-container button.select {
+       background-color: #4CAF50; /* Green */
+       color: #fff;
+    }
+    
+    .status-container button.reject {
+       background-color: #F44336; /* Red */
+       color: #fff;
+    }
+    
+    .status-container button:hover {
+       opacity: 0.8;
+    }
+    
+    .status-container .selected, .status-container .rejected {
+       display: none;
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       font-weight: bold;
+       text-transform: uppercase;
+    }
+    
+    .status-container .selected {
+       color: #4CAF50;
+    }
+    
+    .status-container .rejected {
+       color: #F44336;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+       .header .flex {
+          flex-direction: column;
+          align-items: flex-start;
+       }
+    
+       .header .navbar {
+          margin-top: 10px;
+       }
+    
+       .icons .fas {
+          font-size: 1.5rem;
+       }
+    
+       .account-box {
+          top: 50px;
+          right: 10px;
+       }
+    
+       .search-form {
+          flex-direction: column;
+          align-items: stretch;
+       }
+    
+       .search-form input[type="text"] {
+          width: 100%;
+          margin-bottom: 10px;
+       }
+    
+       .search-form button {
+          width: 100%;
+       }
+    }
+    
+
+ </style>
 </head>
 <body>
-   
-<header>
-    <!-- Header content here -->
-</header>
 
-<section class="input">
-    <form action="" method="POST">
+    <header class="header">
         <div class="flex">
-            <input type="text" id="search" name="q" placeholder="Search by Skills">
-            <button type="submit">Search</button>
-            <div class="inputBox">
-                <select id="conditions" >
-                    <option value="recent">Recent</option>
-                    <option value="sorted">Sorted</option>
-                    <option value="selected">Selected</option>
-                    <option value="all">All</option>
-                </select>
-            </div>
+           <a href="admin_page.html" class="logo">Admin<span>Panel</span></a>
+           <nav class="navbar">
+              <a href="admin_page.html">Home</a>
+              <a href="admin_resume.html">Resumes</a>
+              <a href="admin_conditions.html">Conditions</a>
+              <a href="admin_users.php">Users</a>
+              <a href="admin_contacts.php">Messages</a>
+           </nav>
+           <div class="icons">
+              <div id="menu-btn" class="fas fa-bars"></div>
+              <div id="user-btn" class="fas fa-user"></div>
+           </div>
+           <div class="account-box" id="account-box">
+              <p>username : <span>Admin</span></p>
+              <p>email : <span>admin@example.com</span></p>
+              <a href="logout.php" class="delete-btn">logout</a>
+           </div>
         </div>
-    </form>
-</section>
+     </header>
 
-<section class="table">
-    <table>
-        <thead>
+   <div class="container">
+
+      <form class="search-form" action="" method="POST">
+         <input type="text" id="search" name="q" placeholder="Search by Skills">
+         <button type="submit">Search</button>
+         <div class="inputBox">
+            <select id="conditions" onchange="toggleTable()">
+               <option value="recent">Recent</option>
+               <option value="sorted">Sorted</option>
+               <option value="selected">Selected</option>
+               <option value="all">All</option>
+            </select>
+         </div>
+      </form>
+
+      <table id="main-table">
+         <thead>
             <tr>
-                <th>Name</th>
-                <th>Mobile No.</th>
-                <th>Expected Salary</th>
-                <th>Presented Salary</th>
-                <th>Resume</th>
-                <th>Status</th>
+               <th>Name</th>
+               <th>Mobile No.</th>
+               <th>Expected Salary</th>
+               <th>Presented Salary</th>
+               <th>Resume</th>
+               <th>Status</th>
             </tr>
-        </thead>
-        <tbody>
+         </thead>
+         <tbody>
             <tr>
-                <td>xyz</td>
-                <td>123456789</td>
-                <td>₹80,000</td>
-                <td>₹75,000</td>
-                <td><a href="#">View Resume</a></td>
-                <td class="btn-container">
-                    <button onclick="setStatus('selected', this)">Select</button>
-                    <button onclick="setStatus('rejected', this)">Reject</button>
-                    <span class="selected">SELECTED</span>
-                    <span class="rejected">REJECTED</span>
-                </td>
+               <td>John Doe</td>
+               <td>123456789</td>
+               <td>₹80,000</td>
+               <td>₹75,000</td>
+               <td><a href="#">View Resume</a></td>
+               <td class="status-container">
+                  <button class="select" onclick="setStatus('selected', this)">Select</button>
+                  <button class="reject" onclick="setStatus('rejected', this)">Reject</button>
+                  <span class="selected">SELECTED</span>
+                  <span class="rejected">REJECTED</span>
+               </td>
             </tr>
             <!-- Add more rows as needed -->
-        </tbody>
-    </table>
-</section>
+         </tbody>
+      </table>
 
-<script>
-    function setStatus(status, button) {
-        var parent = button.parentNode;
-        var selectedSpan = parent.querySelector('.selected');
-        var rejectedSpan = parent.querySelector('.rejected');
-        var buttons = parent.querySelectorAll('button');
-        
-        if (status === 'selected') {
+      <table id="selected-table" style="display: none;">
+         <thead>
+            <tr>
+               <th>Full Name</th>
+               <th>Expected Salary</th>
+               <th>Present Salary</th>
+               <th>Mobile Number</th>
+               <th>Email</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>John Doe</td>
+               <td>₹80,000</td>
+               <td>₹75,000</td>
+               <td>1234567890</td>
+               <td>johndoe@example.com</td>
+            </tr>
+            <!-- Add more rows as needed -->
+         </tbody>
+      </table>
+
+   </div>
+
+   <script>
+      function setStatus(status, button) {
+         var parent = button.parentNode;
+         var selectedSpan = parent.querySelector('.selected');
+         var rejectedSpan = parent.querySelector('.rejected');
+         var buttons = parent.querySelectorAll('button');
+         
+         if (status === 'selected') {
             selectedSpan.style.display = 'inline';
             rejectedSpan.style.display = 'none';
-        } else if (status === 'rejected') {
+         } else if (status === 'rejected') {
             selectedSpan.style.display = 'none';
             rejectedSpan.style.display = 'inline';
-        }
-        
-        buttons.forEach(function(btn) {
+         }
+         
+         buttons.forEach(function(btn) {
             btn.style.display = 'none';
+         });
+      }
+
+      function toggleTable() {
+         var condition = document.getElementById('conditions').value;
+         var mainTable = document.getElementById('main-table');
+         var selectedTable = document.getElementById('selected-table');
+
+         if (condition === 'selected') {
+            mainTable.style.display = 'none';
+            selectedTable.style.display = 'table';
+         } else {
+            mainTable.style.display = 'table';
+            selectedTable.style.display = 'none';
+         }
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var userBtn = document.getElementById('user-btn');
+        var accountBox = document.getElementById('account-box');
+    
+        // Toggle account-box visibility on user-btn click
+        userBtn.addEventListener('click', function() {
+            accountBox.classList.toggle('active');
         });
-    }
-</script>
+    
+        // Close account-box if clicked outside
+        document.addEventListener('click', function(e) {
+            if (!userBtn.contains(e.target) && !accountBox.contains(e.target)) {
+                accountBox.classList.remove('active');
+            }
+        });
+    });
+    
+   </script>
 
 </body>
 </html>

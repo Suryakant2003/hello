@@ -1,61 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom admin CSS file link -->
+    <link rel="stylesheet" href="css/admin_style.css">
+    <!-- Custom CSS for dashboard styling -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
 
-   <!-- Font Awesome CDN link -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-   <!-- Custom admin CSS file link -->
-   <link rel="stylesheet" href="css/admin_style.css">
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #24309F; /* Updated color here */
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #0056b3;
+        }
+
+        .navbar a {
+            margin: 0 10px;
+            color: #343a40;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .icons .fas {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .account-box {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .account-box.active {
+            display: block;
+        }
+
+        .account-box p {
+            margin: 0 0 10px;
+            color: #343a40;
+        }
+
+        .account-box .delete-btn {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #fff;
+            background-color: #dc3545;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .dashboard {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .dashboard .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .box {
+            background-color: #24309F; /* Updated color here */
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            background-color: #0056b3;
+        }
+
+        .box h3 {
+            font-size: 36px;
+            margin: 0 0 10px;
+            font-weight: bold;
+        }
+
+        .box p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        #message-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .message {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 5px solid #f5c6cb;
+            border-radius: 4px;
+        }
+
+        .message .fa-times {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-   <!-- Include admin header if required -->
+<header class="header">
+   <div class="flex">
+      <a href="admin_page.html" class="logo">Admin<span>Panel</span></a>
+      <nav class="navbar">
+         <a href="admin_page.html">Home</a>
+         <a href="admin_resume.html">Resumes</a>
+         <a href="admin_conditions.html">Conditions</a>
+         <a href="admin_users.php">Users</a>
+         <a href="admin_contacts.php">Messages</a>
+      </nav>
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+      </div>
+      <div class="account-box" id="account-box">
+         <p>username : <span>Admin</span></p>
+         <p>email : <span>admin@example.com</span></p>
+         <a href="logout.php" class="delete-btn">logout</a>
+      </div>
+   </div>
 </header>
 
 <section class="dashboard">
-
    <h1 class="title">Dashboard</h1>
-
    <div class="box-container">
-
       <div class="box">
          <h3>0</h3>
          <p>Total Resume</p>
       </div>
-
       <div class="box">
          <h3>0</h3>
          <p>Sorted Resume</p>
       </div>
-
       <div class="box">
          <h3>0</h3>
          <p>Selected Resume</p>
       </div>
-
       <div class="box">
          <h3>0</h3>
          <p>New Resume</p>
       </div>
-
       <div class="box">
          <h3>0</h3>
          <p>Admin Users</p>
       </div>
-
    </div>
-
 </section>
 
+<!-- Message container -->
+<div id="message-container">
+    <div class="message">
+        <span>This is a message</span>
+        <i class="fas fa-times"></i>
+    </div>
+    <!-- Add more messages here -->
+</div>
+
 <script>
-   // You can add your JavaScript code here
+    document.addEventListener('DOMContentLoaded', function() {
+        var userBtn = document.getElementById('user-btn');
+        var accountBox = document.getElementById('account-box');
+
+        // Toggle account box visibility
+        userBtn.addEventListener('click', function() {
+            accountBox.classList.toggle('active');
+        });
+
+        var messageElements = document.querySelectorAll('.message');
+
+        messageElements.forEach(function(messageElement) {
+            messageElement.querySelector('.fa-times').addEventListener('click', function() {
+                messageElement.remove();
+            });
+        });
+    });
 </script>
 
 </body>
