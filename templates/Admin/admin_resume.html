@@ -1,111 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Job Candidates</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Candidates</title>
 
-   <!-- Font Awesome CDN for icons -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Font Awesome CDN for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-   <!-- Custom CSS for styling -->
-   <link rel="stylesheet" href="/static/css/admin_resume.css">
-
-</head>
-<body>
-
+    <!-- Custom CSS for styling -->
+    <link rel="stylesheet" href="/static/css/admin_resume.css" />
+  </head>
+  <body>
     <header class="header">
-        <div class="flex">
-           <a href="admin_page.html" class="logo">Admin<span>Panel</span></a>
-           <nav class="navbar">
-              <a href="admin_page.html">Home</a>
-              <a href="admin_resume.html">Resumes</a>
-              <a href="admin_user.html">Users</a>
-              
-           </nav>
-           <div class="icons">
-            <div id="mess-btn" class="fa-regular fa-message"></div>
-              <div id="user-btn" class="fas fa-user"></div>
-           </div>
-           <div class="account-box" id="account-box">
-              <p>username : <span>Admin</span></p>
-              <p>email : <span>admin@example.com</span></p>
-              <a href="index.html" class="delete-btn">logout</a>
-           </div>
+      <div class="flex">
+        <a href="admin_page.html" class="logo">Admin<span>Panel</span></a>
+        <nav class="navbar">
+          <a href="admin_page.html">Home</a>
+          <a href="admin_resume.html">Resumes</a>
+          <a href="admin_user.html">Users</a>
+        </nav>
+        <div class="icons">
+          <div id="mess-btn" class="fa-solid fa-bell"></div>
+          <div id="user-btn" class="fas fa-user"></div>
         </div>
-     </header>
+        <div class="account-box" id="account-box">
+          <p>username : <span>Admin</span></p>
+          <p>email : <span>admin@example.com</span></p>
+          <a href="index.html" class="delete-btn">logout</a>
+        </div>
+      </div>
+    </header>
 
-   <div class="container">
-
-      <form class="search-form" action="" method="POST">
-         <input type="text" id="search" name="q" placeholder="Search by Skills">
-         <button type="submit">Search</button>
-         <div class="inputBox">
-            <select id="conditions" onchange="toggleTable()">
-               <option value="recent">Recent</option>
-               <option value="sorted">Sorted</option>
-               <option value="selected">Selected</option>
-               <option value="all">All</option>
-            </select>
-         </div>
+    <div class="container">
+      <form class="search-form gap-3" action="" method="POST">
+        <input
+          type="text"
+          id="search"
+          name="q"
+          placeholder="Search by Skills"
+        />
+        <input type="text" id="search" name="q" placeholder="Search by CTC" />
+        <input
+          type="text"
+          id="search"
+          name="q"
+          placeholder="Search by Location"
+        />
+        <button type="submit">Search</button>
+        <div class="inputBox">
+          <select
+            id="conditions"
+            class="btn btn-primary py-2"
+            onchange="toggleTable()"
+          >
+            <option value="recent">Recent</option>
+            <option value="sorted">Sorted</option>
+            <option value="selected">Selected</option>
+            <option value="all">All</option>
+          </select>
+        </div>
       </form>
 
       <table id="main-table">
-         <thead>
-            <tr>
-               <th>Name</th>
-               <th>Mobile No.</th>
-               <th>Expected Salary</th>
-               <th>Presented Salary</th>
-               <th>Resume</th>
-               <th>Status</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td>John Doe</td>
-               <td>123456789</td>
-               <td>₹80,000</td>
-               <td>₹75,000</td>
-               <td><a href="#">View Resume</a></td>
-               <td class="status-container">
-                  <button class="select" onclick="setStatus('selected', this)">Select</button>
-                  <button class="reject" onclick="setStatus('rejected', this)">Reject</button>
-                  <span class="selected">SELECTED</span>
-                  <span class="rejected">REJECTED</span>
-               </td>
-            </tr>
-            <!-- Add more rows as needed -->
-         </tbody>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Mobile No.</th>
+            <th>Expected Salary</th>
+            <th>Presented Salary</th>
+            <th>Resume</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>123456789</td>
+            <td>₹80,000</td>
+            <td>₹75,000</td>
+            <td><a href="#">View Resume</a></td>
+            <td class="status-container">
+              <button class="select" onclick="setStatus('selected', this)">
+                Select
+              </button>
+              <button class="reject" onclick="setStatus('rejected', this)">
+                Reject
+              </button>
+              <span class="selected">SELECTED</span>
+              <span class="rejected">REJECTED</span>
+            </td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
       </table>
 
-      <table id="selected-table" style="display: none;">
-         <thead>
-            <tr>
-               <th>Full Name</th>
-               <th>Expected Salary</th>
-               <th>Present Salary</th>
-               <th>Mobile Number</th>
-               <th>Email</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td>John Doe</td>
-               <td>₹80,000</td>
-               <td>₹75,000</td>
-               <td>1234567890</td>
-               <td>johndoe@example.com</td>
-            </tr>
-            <!-- Add more rows as needed -->
-         </tbody>
+      <table id="selected-table" style="display: none">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Expected Salary</th>
+            <th>Present Salary</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>₹80,000</td>
+            <td>₹75,000</td>
+            <td>1234567890</td>
+            <td>johndoe@example.com</td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
       </table>
+    </div>
 
-   </div>
-
-  <!-- JavaScript placeholder -->
-<script src="/static/js/admin_resume.js"></script>
-
-</body>
+    <!-- JavaScript placeholder -->
+    <script src="/static/js/admin_resume.js"></script>
+  </body>
 </html>

@@ -1,62 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>dashboard</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
 
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
 
-   <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="/static/css/admin_user.css">
-</head>
-<body>
+    <!-- custom admin css file link  -->
+    <link rel="stylesheet" href="/static/css/admin_user.css" />
+  </head>
+  <body>
     <header class="header">
-        <div class="flex">
-           <a href="admin_page.html" class="logo">Admin<span>Panel</span></a>
-           <nav class="navbar">
-              <a href="admin_page.html" aria-label="Home">Home</a>
-              <a href="admin_resume.html" aria-label="Resumes">Resumes</a>
-              <a href="admin_user.html" aria-label="Users">Users</a>
-           </nav>
-           <div class="icons">
-              <div id="mess-btn" class="fa-regular fa-message"></div>
-              <div id="user-btn" class="fas fa-user"></div>
-           </div>
-           <div class="account-box" id="account-box">
-              <p>username : <span>Admin</span></p>
-              <p>email : <span>admin@example.com</span></p>
-              <a href="index.html" class="delete-btn">logout</a>
-           </div>
+      <div class="flex">
+        <a href="admin_page.html" class="logo">Admin<span>Panel</span></a>
+        <nav class="navbar">
+          <a href="admin_page.html" aria-label="Home">Home</a>
+          <a href="admin_resume.html" aria-label="Resumes">Resumes</a>
+          <a href="admin_user.html" aria-label="Users">Users</a>
+        </nav>
+        <div class="icons">
+          <div id="mess-btn" class="fa-solid fa-bell"></div>
+          <div id="user-btn" class="fas fa-user"></div>
         </div>
-     </header>
-
-<section class="users">
-   <h1 class="title">Users Account</h1>
-   <div class="box-container">
-      <!-- Example user data, replace this with actual data -->
-      <div class="box">
-         <p>user id : <span>1</span></p>
-         <p>username : <span>John Doe</span></p>
-         <p>email : <span>johndoe@example.com</span></p>
-         <p>user type : <span style="color: var(--orange);">admin</span></p>
-         <a href="admin_users.php?delete=1" onclick="return confirm('delete this user?');" class="delete-btn">delete</a>
+        <div class="account-box" id="account-box">
+          <p>username : <span>Admin</span></p>
+          <p>email : <span>admin@example.com</span></p>
+          <a href="index.html" class="delete-btn">logout</a>
+        </div>
       </div>
-      <div class="box">
-         <p>user id : <span>2</span></p>
-         <p>username : <span>Jane Smith</span></p>
-         <p>email : <span>janesmith@example.com</span></p>
-         <p>user type : <span>user</span></p>
-         <a href="admin_users.php?delete=2" onclick="return confirm('delete this user?');" class="delete-btn">delete</a>
+    </header>
+
+    <section class="users">
+      <h1 class="title">Users Account</h1>
+      <div class="box-container">
+        <!-- Example user data, replace this with actual data -->
+        <div class="box">
+          <p>user id : <span>1</span></p>
+          <p>username : <span>John Doe</span></p>
+          <p>email : <span>johndoe@example.com</span></p>
+          <p>user type : <span style="color: var(--orange)">admin</span></p>
+          <a
+            href="#"
+            onclick="return confirm('delete this user?');"
+            class="delete-btn"
+            >delete</a
+          >
+        </div>
+        <div class="box">
+          <p>user id : <span>2</span></p>
+          <p>username : <span>Jane Smith</span></p>
+          <p>email : <span>janesmith@example.com</span></p>
+          <p>user type : <span>user</span></p>
+          <a
+            href="#"
+            onclick="return confirm('delete this user?');"
+            class="delete-btn"
+            >delete</a
+          >
+        </div>
+        <!-- Add more user boxes as needed -->
       </div>
-      <!-- Add more user boxes as needed -->
-   </div>
-</section>
+    </section>
 
- <!-- JavaScript placeholder -->
- <script src="/static/js/admin_user.js"></script>
-
-</body>
+    <!-- JavaScript placeholder -->
+    <script src="/static/js/admin_user.js"></script>
+  </body>
 </html>

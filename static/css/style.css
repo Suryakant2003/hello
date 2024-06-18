@@ -1,0 +1,121 @@
+/* Root variables */
+:root {
+    --primary-color: #ff7f50; /* Coral */
+    --secondary-color: #6495ed; /* Cornflower Blue */
+    --tertiary-color: #2ecc71; /* Emerald */
+    --text-color: #2c3e50; /* Dark Slate Gray */
+    --bg-color: #f0f8ff; /* Alice Blue */
+    --accent-color: #ff6348; /* Tomato */
+    --border: .2rem solid var(--text-color);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+ }
+ 
+ /* Selection styling */
+ *::selection {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+ }
+ 
+ /* Scrollbar styling */
+ *::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+ }
+ 
+ /* Body defaults */
+ body {
+    background: var(--bg-color);
+ }
+ 
+ /* Styling for messages */
+ .message {
+    background-color: var(--bg-color);
+ }
+ 
+ /* Styling for message icons */
+ .message i {
+    color: var(--accent-color);
+ }
+ 
+ 
+ 
+ .delete-btn {
+    background-color: var(--accent-color);
+ }
+ 
+ .option-btn {
+    background-color: var(--secondary-color);
+ }
+ 
+ 
+ 
+ /* Styling for empty elements */
+ .empty {
+    color: var(--accent-color);
+    background-color: var(--bg-color);
+ }
+ 
+ /* Styling for section headings */
+ .heading {
+    background-color: var(--secondary-color);
+ }
+ 
+ /* Styling for heading h3 */
+ .heading h3 {
+    color: var(--bg-color);
+ }
+ 
+ /* Styling for heading paragraphs */
+ .heading p {
+    color: var(--text-color);
+ }
+ 
+ /* Styling for heading links */
+ .heading p a {
+    color: var(--primary-color);
+ }
+ 
+ /* Hover effect for heading links */
+ .heading p a:hover {
+    text-decoration: underline;
+ }
+ 
+ /* Styling for titles */
+ .title {
+    color: var(--text-color);
+ }
+ 
+ /* Styling for form elements */
+ .form-container form {
+    background-color: var(--bg-color);
+ }
+ 
+ /* Styling for form paragraphs */
+ .form-container form p {
+    color: var(--text-color);
+ }
+ 
+ /* Styling for form links */
+ .form-container form p a {
+    color: var(--primary-color);
+ }
+ 
+ /* Styling for headers */
+ .header {
+    background-color: var(--bg-color);
+ }
+ 
+ /* Styling for header logo */
+ .header .flex .logo {
+    color: var(--primary-color);
+ }
+ 
+ .gradient-custom {
+    /* fallback for old browsers */
+    background: #6a11cb;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    }  

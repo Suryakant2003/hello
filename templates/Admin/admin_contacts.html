@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Dashboard</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
 
-   <!-- Font Awesome CDN Link -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
 
-   <!-- Custom Admin CSS File Link -->
-   <link rel="stylesheet" href="/static/css/admin_contact.css">
-
-</head>
-<body>
-
+    <!-- Custom Admin CSS File Link -->
+    <link rel="stylesheet" href="/static/css/admin_contact.css" />
+  </head>
+  <body>
     <header class="header">
-        <div class="flex">
-           <a href="admin_page.html" class="logo">Admin<span>Panel</span></a>
-           <nav class="navbar">
-              <a href="admin_page.html" aria-label="Home">Home</a>
-              <a href="admin_resume.html" aria-label="Resumes">Resumes</a>
-              <a href="admin_conditions.html" aria-label="Conditions">Conditions</a>
-              <a href="admin_user.html" aria-label="Users">Users</a>
-           </nav>
-           <div class="icons">
-              <div id="mess-btn" class="fa-regular fa-message"></div>
-              <div id="user-btn" class="fas fa-user"></div>
-           </div>
-           <div class="account-box" id="account-box">
-              <p>username : <span>Admin</span></p>
-              <p>email : <span>admin@example.com</span></p>
-              <a href="index.html" class="delete-btn">logout</a>
-           </div>
+      <div class="flex">
+        <a href="admin_page.html" class="logo">Admin<span>Panel</span></a>
+        <nav class="navbar">
+          <a href="admin_page.html" aria-label="Home">Home</a>
+          <a href="admin_resume.html" aria-label="Resumes">Resumes</a>
+          <a href="admin_user.html" aria-label="Users">Users</a>
+        </nav>
+        <div class="icons">
+          <div id="mess-btn" class="fa-solid fa-bell"></div>
+          <div id="user-btn" class="fas fa-user"></div>
         </div>
-     </header>
+        <div class="account-box" id="account-box">
+          <p>username : <span>Admin</span></p>
+          <p>email : <span>admin@example.com</span></p>
+          <a href="index.html" class="delete-btn">logout</a>
+        </div>
+      </div>
+    </header>
 
     <section class="messages">
-       <h1 class="title">Messages</h1>
-       <div class="box-container">
-          <!-- Example message box, repeat as needed -->
-          <div class="box">
-             <p>user id : <span>1</span> </p>
-             <p>name : <span>John Doe</span> </p>
-             <p>number : <span>1234567890</span> </p>
-             <p>email : <span>john.doe@example.com</span> </p>
-             <p>message : <span>Hello, this is a sample message!</span> </p>
-             <a href="#" onclick="return confirm('delete this message?');" class="delete-btn">Delete</a>
-          </div>
-          <!-- End of example message box -->
+      <h1 class="title">Messages</h1>
+      <div class="box-container">
+        <!-- Example message box, repeat as needed -->
+        <div class="box">
+          <p>user id : <span>1</span></p>
+          <p>name : <span>John Doe</span></p>
+          <p>number : <span>1234567890</span></p>
+          <p>email : <span>john.doe@example.com</span></p>
+          <p>message : <span>Hello, this is a sample message!</span></p>
+          <a
+            href="#"
+            onclick="return confirm('delete this message?');"
+            class="delete-btn"
+            >Delete</a
+          >
+        </div>
+        <!-- End of example message box -->
 
-          <!-- Placeholder for when there are no messages -->
-          <p class="empty">You have no messages!</p>
-       </div>
+        <!-- Placeholder for when there are no messages -->
+        <p class="empty">You have no messages!</p>
+      </div>
     </section>
 
     <!-- JavaScript placeholder -->
     <script src="/static/js/admin_contact.js"></script>
-
-</body>
+  </body>
 </html>
