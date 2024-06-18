@@ -1,0 +1,151 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #24309F; /* Updated banner background color to #24309F */
+    color: #ffffff; /* Set text color in the header to white */
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff; /* Set logo text color to white */
+    text-decoration: none;
+}
+
+.logo span {
+    color: #ffffff; /* Set span text color to white */
+}
+
+.navbar a {
+    margin: 0 10px;
+    color: #ffffff; /* Set navigation links text color to white */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons .fas {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.account-box {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.account-box.active {
+    display: block;
+}
+
+.account-box p {
+    margin: 0 0 10px;
+    color: #343a40;
+}
+
+.account-box .delete-btn {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    background-color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.dashboard .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.box {
+    background-color: #24309F; /* Updated color to #24309F */
+    color: #ffffff; /* Set text color to white */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    background-color: #0056b3;
+}
+
+.box h3 {
+    font-size: 36px;
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+.box p {
+    font-size: 16px;
+    margin: 0;
+}
+
+#message-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 5px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+.message .fa-times {
+    cursor: pointer;
+}

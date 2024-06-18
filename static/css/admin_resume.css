@@ -1,0 +1,244 @@
+/* admin_style.css */
+
+/* Reset and base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.header .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #24309F; /* Updated banner background color to #24309F */
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+
+.header .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.header .logo span {
+    font-weight: 300;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #f0f0f0;
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-end; /* Align icons to the right */
+    align-items: center;
+}
+
+.icons .fas {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.account-box {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: none;
+}
+
+.account-box.active {
+    display: block;
+}
+
+.account-box p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.account-box p span {
+    font-weight: bold;
+    color: #24309F; /* Updated color to match header background */
+}
+
+.account-box .delete-btn {
+    display: block;
+    background-color: #ff4d4d;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 3px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.account-box .delete-btn:hover {
+    background-color: #e63946;
+}
+
+.search-form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    width: 60%;
+    outline: none;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #24309F; /* Updated search button background color */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #004080; /* Darker shade for hover effect */
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+td {
+    background-color: #fff;
+    color: #333;
+}
+
+.status-container {
+    position: relative;
+}
+
+.status-container button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.status-container button.select {
+    background-color: #4CAF50; /* Green */
+    color: #fff;
+}
+
+.status-container button.reject {
+    background-color: #F44336; /* Red */
+    color: #fff;
+}
+
+.status-container button:hover {
+    opacity: 0.8;
+}
+
+.status-container .selected, .status-container .rejected {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-container .selected {
+    color: #4CAF50;
+}
+
+.status-container .rejected {
+    color: #F44336;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header .flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header .navbar {
+        margin-top: 10px;
+    }
+
+    .icons .fas {
+        font-size: 1.5rem;
+    }
+
+    .account-box {
+        top: 50px;
+        right: 10px;
+    }
+
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-form input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-form button {
+        width: 100%;
+    }
+}
